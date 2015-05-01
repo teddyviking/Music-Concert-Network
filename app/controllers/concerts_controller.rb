@@ -50,6 +50,15 @@ class ConcertsController < ApplicationController
     @later_concerts = Concert.find_later_month_concerts
   end
 
+  def budget_selector
+    @concert = Concert.new
+  end
+
+  def select_budget
+    @budget = permited_params[:price]
+    @concerts = Concert.find_future_events_with_budget(@budget)
+  end
+
 
   private
 

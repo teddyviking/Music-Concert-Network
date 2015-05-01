@@ -46,7 +46,7 @@ end
 
 def create_comments(total, concert)
 	total.times do |n|
-		concert.comments.create(user: "autor#{n}", content: "#{n}Sed ut perspiciatis unde omnis iste natus error sit")
+		concert.comments.create(user: "user#{n}", content: "#{n}Sed ut perspiciatis unde omnis iste natus error sit")
 	end
 end
 

@@ -4,8 +4,9 @@
 		<% @today_concerts.each do |concert| %>
 			<li><%=link_to (concert.band + " at " + concert.venue), concert_path(concert)%></li>
 		<% end %>
-
 	</ul>
+
+	<p>Low budget? Use our <%= link_to "budget selector", budget_selector_path%> to filter the ones you are looking for </p>
 </section>
 <aside style="float: right">
 	<h1>Later this month</h1>

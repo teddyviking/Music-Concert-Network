@@ -1,0 +1,10 @@
+<h1>Budget selector</h1>
+
+<p>Enter your budget and we will do the rest</p>
+
+<%= form_for @concert, url: budget_selector_path do |f| %>
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+
+	<%= f.submit "Get concerts" %>
+<% end %>

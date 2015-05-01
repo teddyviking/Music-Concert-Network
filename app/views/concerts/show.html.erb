@@ -16,9 +16,9 @@
 <section class="concert-comments">
 	<h2>Comments</h2>
 	<%= render 'comments/form' %>
-	<ul>
+	<ul style="list-style-type: none">
 		<% @concert.comments.each do |comment| %>
-			<li><%= comment.user %></br>
+			<li style="border: 1px solid black"><%= comment.user %></br>
 				<%= comment.content %>
 			</li>
 		<% end %>

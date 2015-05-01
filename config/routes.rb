@@ -3,13 +3,17 @@ Rails.application.routes.draw do
   
 
   # get 'concerts/comments/new' => "comme"
+  get 'concerts/budget_selector' => "concerts#budget_selector", as: :budget_selector
+  post 'concerts/budget_selector' => "concerts#select_budget"
+  root to: 'concerts#display_today'
+
 
   get 'concerts/:id/comments' => "comments#index", as: :concert_comments
   post 'concerts/:id/comments' => "comments#create"
+  
+
   resources :concerts
-
-
-  root to: 'concerts#display_today'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
