@@ -23,6 +23,7 @@ def create_future_concerts(total)
 	create_concerts(total).each do |concert|
 		concert.date = concert.date.weeks.from_now
 		concert.save
+		create_comments(2, concert)
 	end
 end
 
@@ -30,6 +31,7 @@ def create_passed_concerts(total)
 	create_concerts(total).each do |concert|
 		concert.date = concert.date.weeks.ago
 		concert.save
+		create_comments(2, concert)
 	end
 end
 
@@ -38,6 +40,13 @@ def create_todays_concerts(total)
 		concert.band = "today band#{concert.date}"
 		concert.date = Date.today
 		concert.save
+		create_comments(2, concert)
+	end
+end
+
+def create_comments(total, concert)
+	total.times do |n|
+		concert.comments.create(user: "autor#{n}", content: "#{n}Sed ut perspiciatis unde omnis iste natus error sit")
 	end
 end
 
