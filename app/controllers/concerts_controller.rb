@@ -46,6 +46,7 @@ class ConcertsController < ApplicationController
 
   def display_today
     @today_concerts = Concert.find_today_concerts
+    @later_concerts = Concert.find_later_month_concerts
   end
 
 

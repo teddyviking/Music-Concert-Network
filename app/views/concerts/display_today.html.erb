@@ -1,4 +1,4 @@
-<section>
+<section style="float: left">
 	<h1>Today's events</h1>
 	<ul>
 		<% @today_concerts.each do |concert| %>
@@ -7,7 +7,13 @@
 
 	</ul>
 </section>
-<aside>
-
-
+<aside style="float: right">
+	<h1>Later this month</h1>
+	<ul>
+		<% @later_concerts.each do |concert| %>
+			<li><%=link_to (concert.band + " at " + concert.venue), concert_path(concert)%></li>
+		<% end %>
+	</ul>
 </aside>
+
+<div style="clear: both"></div>
