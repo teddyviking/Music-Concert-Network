@@ -1,2 +1,12 @@
-<h1>Concerts#index</h1>
-<p>Find me in app/views/concerts/index.html.erb</p>
+<h1>Next concerts</h1>
+
+
+<ul>
+	<% @concerts.each do |concert| %>
+		<li><%= link_to (concert.band + " at " + concert.venue), concert_path(concert) %> </br>
+			on <%= concert.date %>
+		 </li>
+
+	<% end %>
+
+</ul>

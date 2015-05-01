@@ -1,2 +1,7 @@
-<h1>Concerts#show</h1>
-<p>Find me in app/views/concerts/show.html.erb</p>
+<h1><%= @concert.band + " at " + @concert.venue %> </h1>
+<p>On <%= @concert.date %></p>
+
+<h2>Description</h2>
+<p><%= @concert.description %></p>
+
+<p>Price: <%= @concert.price %></p>
