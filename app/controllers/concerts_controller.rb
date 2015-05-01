@@ -59,6 +59,10 @@ class ConcertsController < ApplicationController
     @concerts = Concert.find_future_events_with_budget(@budget)
   end
 
+  def popular_concerts
+    @concerts= Concert.find_future_events_with_most_comments
+  end
+
 
   private
 

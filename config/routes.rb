@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # get 'concerts/comments/new' => "comme"
   get 'concerts/budget_selector' => "concerts#budget_selector", as: :budget_selector
   post 'concerts/budget_selector' => "concerts#select_budget"
+  get 'concerts/popular_concerts' => "concerts#popular_concerts", as: :popular_concerts
   root to: 'concerts#display_today'
 
 

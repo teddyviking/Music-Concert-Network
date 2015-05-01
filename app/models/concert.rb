@@ -14,7 +14,15 @@ class Concert < ActiveRecord::Base
 		concerts = self.where date: ((Date.today + 1)..(Date.today.end_of_month))
 	end
 
-	def self.find_future_events_with_budget(budget)
-		self.where("price <= ?", budget).where("date >= ?", Date.today)
+	def self.find_future_events
+		self.where("date >= ?", Date.today)
 	end
+
+	def self.find_future_events_with_budget(budget)
+		self.find_future_events.where("price <= ?", budget)
+	end
+
+	def self.find_future_events_with_most_comments
+ 		self.order('comments_count DESC').limit(10)	
+ 	end
 end

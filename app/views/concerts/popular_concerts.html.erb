@@ -1,0 +1,10 @@
+<h1>The most popular concerts of the next weeks</h1>
+
+<ul>
+	<% @concerts.each do |concert| %>
+		<li><%= link_to (concert.band + " at " + concert.venue), concert_path(concert) %> </br>
+			on <%= concert.date.to_s + " in " + concert.city%></br>
+			Comments: <%= concert.comments.count %>
+		</li>
+	<% end %>
+</ul>
