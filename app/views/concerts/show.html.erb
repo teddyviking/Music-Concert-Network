@@ -1,5 +1,5 @@
 <h1><%= @concert.band + " at " + @concert.venue %> </h1>
-<p>On <%= @concert.date %></p>
+<p>On <%= @concert.date.to_s + " in " + @concert.city%></p>
 
 <h2>Description</h2>
 <p><%= @concert.description %></p>

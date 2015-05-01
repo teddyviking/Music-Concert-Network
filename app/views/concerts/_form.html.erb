@@ -35,7 +35,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit 'Create concert' %>
+    <%= f.submit (@concert.new_record? ? 'Create concert' : 'Update concert') %>
   </div>
 
 

@@ -13,7 +13,6 @@ class ConcertsController < ApplicationController
 
   def create
   	@concert = Concert.new permited_params
-    binding.pry
     if @concert.save
       flash.now[:notice] = "Concert successfuly created"
       redirect_to concert_path(@concert)
@@ -24,10 +23,18 @@ class ConcertsController < ApplicationController
   end
 
   def edit
+    @concert = Concert.find params[:id]
   end
 
   def update
-  	
+    @concert = Concert.find params[:id]
+    if @concert.update_attributes permited_params
+      flash.now[:notice] = "Concert successfuly updated"
+      redirect_to concert_path(@concert)
+    else
+      flash.now[:alert] = "Concert could not be updated"
+      render 'edit'
+    end  	
   end
 
   def destroy
