@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   
+  
+
+  # get 'concerts/comments/new' => "comme"
+
+  get 'concerts/:id/comments' => "comments#index", as: :concert_comments
+  post 'concerts/:id/comments' => "comments#create"
   resources :concerts
+
 
   root to: 'concerts#display_today'
 

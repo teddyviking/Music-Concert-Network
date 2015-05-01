@@ -1,11 +1,27 @@
-<h1><%= @concert.band + " at " + @concert.venue %> </h1>
-<p>On <%= @concert.date.to_s + " in " + @concert.city%></p>
+<header class="concert-header">
+	<h1><%= @concert.band + " at " + @concert.venue %> </h1>
+	<p>On <%= @concert.date.to_s + " in " + @concert.city%></p>
+</header>
 
-<h2>Description</h2>
-<p><%= @concert.description %></p>
+<section class="concert-description">
+	<h2>Description</h2>
+	<p><%= @concert.description %></p>
+	<p>Price: <%= @concert.price %></p>
+</section>
 
-<p>Price: <%= @concert.price %></p>
+<nav>
+	<p> Do you want to <%= link_to "go back", concerts_path %> or... <%= link_to "Edit", edit_concert_path(@concert)%> or... <%= link_to "DESTROOOY", concert_path(@concert), method: :delete, data: {confirm: 'Are you sure??'} %></p>
+</nav>
 
-<p> Do you want to <%= link_to "go back", concerts_path %> or... <%= link_to "Seek", edit_concert_path(@concert)%> and <%= link_to "Destroy", concert_path(@concert), method: :delete, data: {confirm: 'Are you sure??'} %>
+<section class="concert-comments">
+	<h2>Comments</h2>
+	<%= render 'comments/form' %>
+	<ul>
+		<% @concert.comments.each do |comment| %>
+			<li><%= comment.user %></br>
+				<%= comment.content %>
+			</li>
+		<% end %>
+	</ul>
 
-</p>
+</section>

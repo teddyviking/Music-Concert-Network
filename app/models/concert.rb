@@ -1,4 +1,6 @@
 class Concert < ActiveRecord::Base
+	has_many :comments
+	
 	validates_presence_of :band, :venue, :city, :description
 	validates :date, date: {message: "Date format not valid"}
 	validates :price, numericality: true, presence: true
