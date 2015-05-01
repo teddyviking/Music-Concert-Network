@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+	
+def create_concerts(total)
+	total.times do |n|
+		Concert.create(band: "band#{n}", 
+			venue: "venue#{n}", 
+			city: "city#{n}", 
+			date: n.weeks.from_now, 
+			price: rand(100), 
+			description: "Description #{n}")
+	end
+end
+
+create_concerts(10)
