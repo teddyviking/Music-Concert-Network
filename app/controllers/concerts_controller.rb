@@ -38,7 +38,10 @@ class ConcertsController < ApplicationController
   end
 
   def destroy
-  	
+    @concert = Concert.find params[:id]
+  	@concert.destroy
+    flash.now[:notice] = "Concert successfuly destroyed"
+    redirect_to root_path
   end
 
   private

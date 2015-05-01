@@ -5,3 +5,7 @@
 <p><%= @concert.description %></p>
 
 <p>Price: <%= @concert.price %></p>
+
+<p> Do you want to <%= link_to "go back", concerts_path %> or... <%= link_to "Seek", edit_concert_path(@concert)%> and <%= link_to "Destroy", concert_path(@concert), method: :delete, data: {confirm: 'Are you sure??'} %>
+
+</p>

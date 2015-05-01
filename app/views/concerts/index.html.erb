@@ -4,7 +4,8 @@
 <ul>
 	<% @concerts.each do |concert| %>
 		<li><%= link_to (concert.band + " at " + concert.venue), concert_path(concert) %> </br>
-			on <%= concert.date %>
+			on <%= concert.date.to_s + " in " + concert.city%> </br>
+			<%= link_to "Seek", edit_concert_path(concert)%> and <%= link_to "Destroy", concert_path(concert), method: :delete, data: {confirm: 'Are you sure??'} %>
 		 </li>
 
 	<% end %>
