@@ -1,0 +1,10 @@
+<section>
+	<h1>Today's events</h1>
+	<ul>
+		<% @today_concerts.each do |concert| %>
+			<li><%=link_to (concert.band + " at " + concert.venue), concert_path(concert)%></li>
+		<% end %>
+
+	</ul>
+</section>
+

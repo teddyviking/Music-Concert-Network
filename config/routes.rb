@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :concerts
 
-  root to: 'concerts#index'
+  root to: 'concerts#display_today'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

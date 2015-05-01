@@ -44,6 +44,11 @@ class ConcertsController < ApplicationController
     redirect_to root_path
   end
 
+  def display_today
+    @today_concerts = Concert.find_today_concerts
+  end
+
+
   private
 
   def permited_params
