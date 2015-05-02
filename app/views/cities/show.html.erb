@@ -1,13 +1,12 @@
-<h1>Next concerts</h1>
+<h1><%= @city.name %></h1>
 
 
 <ul>
-	<% @concerts.each do |concert| %>
+	<% @city.concerts.each do |concert| %>
 		<li><%= link_to (concert.band + " at " + concert.venue), concert_path(concert) %> </br>
 			on <%= concert.date.to_s + " in " + concert.city.name%> </br>
 			<%= link_to "Seek", edit_concert_path(concert)%> and <%= link_to "Destroy", concert_path(concert), method: :delete, data: {confirm: 'Are you sure??'} %>
 		 </li>
-
 	<% end %>
 
 </ul>

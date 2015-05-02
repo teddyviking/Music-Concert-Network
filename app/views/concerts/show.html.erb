@@ -1,6 +1,6 @@
 <header class="concert-header">
 	<h1><%= @concert.band + " at " + @concert.venue %> </h1>
-	<p>On <%= @concert.date.to_s + " in " + @concert.city%></p>
+	<p>On <%= @concert.date.to_s + " in " + @concert.city.name%></p>
 </header>
 
 <section class="concert-description">

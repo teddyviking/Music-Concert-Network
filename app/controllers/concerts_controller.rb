@@ -14,6 +14,7 @@ class ConcertsController < ApplicationController
 
   def create
   	@concert = Concert.new permited_params
+    binding.pry
     if @concert.save
       flash.now[:notice] = "Concert successfuly created"
       redirect_to concert_path(@concert)
@@ -67,7 +68,7 @@ class ConcertsController < ApplicationController
   private
 
   def permited_params
-    params.require(:concert).permit(:band, :venue, :city, :date, :price, :description)
+    params.require(:concert).permit(:band, :venue, :city_id, :date, :price, :description)
   end
   
 end

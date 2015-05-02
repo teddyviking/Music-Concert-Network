@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  
-  
 
   # get 'concerts/comments/new' => "comme"
   get 'concerts/budget_selector' => "concerts#budget_selector", as: :budget_selector
@@ -12,8 +10,9 @@ Rails.application.routes.draw do
   get 'concerts/:id/comments' => "comments#index", as: :concert_comments
   post 'concerts/:id/comments' => "comments#create"
   
-
+  resources :cities
   resources :concerts
+
   
 
   # The priority is based upon order of creation: first created -> highest priority.

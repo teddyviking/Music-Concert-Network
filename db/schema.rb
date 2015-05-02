@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501162316) do
+ActiveRecord::Schema.define(version: 20150502143543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "concert_id"
@@ -29,13 +35,15 @@ ActiveRecord::Schema.define(version: 20150501162316) do
   create_table "concerts", force: :cascade do |t|
     t.string   "band"
     t.string   "venue"
-    t.string   "city"
     t.date     "date"
     t.integer  "price"
     t.text     "description"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "comments_count", default: 0
+    t.integer  "city_id"
   end
+
+  add_index "concerts", ["city_id"], name: "index_concerts_on_city_id", using: :btree
 
 end

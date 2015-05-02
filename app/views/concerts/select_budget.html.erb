@@ -3,7 +3,7 @@
 <ul>
 	<% @concerts.each do |concert| %>
 	<li><%= link_to (concert.band + " at " + concert.venue), concert_path(concert) %> </br>
-			on <%= concert.date.to_s + " in " + concert.city%></li>
+			on <%= concert.date.to_s + " in " + concert.city.name%></li>
 
 	<% end %>
 </ul>
